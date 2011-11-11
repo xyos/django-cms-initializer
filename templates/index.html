@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n cms_tags sekizai_tags cache menu_tags %}
+{% block "content" %}
+<!-- Masthead (blueprinty thing)
+================================================== -->
+<div class="hero-unit">
+  <h1>{% placeholder "index_title" or %}{{ SITE_NAME }}{% endplaceholder %}</h1>
+  <p class="lead">
+    {% placeholder "index_description" or %}Descripcion del Sitio{% endplaceholder %}
+  </p>
+</div>
+<!-- Quickstart options
+================================================== -->
+<div class="quickstart">
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+        <h6>{% placeholder "left_title" or %}Izquierda{% endplaceholder %}</h6>
+        <p class="lead">
+          {% placeholder "left_description" or %}Descripcion Izquierda{% endplaceholder %}
+        </p>
+      </div>
+      <div class="span5">
+        <h6>{% placeholder "center_title" or %}Centro{% endplaceholder %}</h6>
+        <p class="lead">
+          {% placeholder "center_description" or %}Descripcion Centro{% endplaceholder %}
+        </p>
+      </div>
+      <div class="span5">
+        <h6>{% placeholder "right_title" or %}Derecha{% endplaceholder %}</h6>
+        <p class="lead">
+          {% placeholder "right_description" or %}Descripcion Derecha{% endplaceholder %}
+        </p>
+      </div>
+    </div><!-- /row -->
+  </div>
+</div>
+{% endblock %}
+{% comment %}-*- htmldjango -*- vim:set ft=htmldjango et sw=2 sts=2:{% endcomment %}

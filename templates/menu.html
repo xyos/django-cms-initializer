@@ -1,0 +1,14 @@
+{% load menu_tags %}
+{% for child in children %}
+<li class="{% if child.selected %}active {% endif %}{% if child.descendant %}descendant{% endif %}{% if child.children %}dropdown" data-dropdown="true{% endif %}">
+  {% if child.children %}
+  <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="dropdown-toggle">{{ child.get_menu_title }}</a>
+  <ul class="dropdown-menu">
+    {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+  </ul>
+  {% else %}
+  <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+  {% endif %}
+</li>
+{% endfor %}
+{% comment %}-*- htmldjango -*- vim:set ft=htmldjango et sw=2 sts=2:{% endcomment %}

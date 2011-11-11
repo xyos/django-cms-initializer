@@ -1,0 +1,82 @@
+{% load i18n cms_tags sekizai_tags cache menu_tags %}
+<!doctype html>
+<!--[if lte IE 8 ]> <html lang="en" class="no-js oldie"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{ SITE_NAME }}{% if request.current_page.parent %} | {% page_attribute "page_title" request.current_page.parent_id %}{% endif %} | {% page_attribute "page_title" %}</title>
+    <meta name="description" content="{% page_attribute "page_title" %}">
+    <meta name="author" content="Jairo Suarez, slayerjairo@gmail.com">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    {% render_block "css" %}
+    {% addtoblock "css" %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+    {% endaddtoblock %}
+
+    <script src="{{ STATIC_URL }}js/libs/modernizr-2.0.6.min.js"></script>
+  </head>
+  <body>
+    {% cms_toolbar %}
+
+    <div id="container">
+      <header>
+      <!-- Topbar
+      ================================================== -->
+      <div class="topbar">
+        <div class="topbar-inner">
+          <div class="container">
+            <a class="brand" href="#">{{ SITE_NAME }}</a>
+            <ul class="nav">
+              {% show_menu 0 100 100 100 "menu.html" %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      </header>
+      <!-- ============================================= -->
+      <!-- Content
+      ================================================== -->
+      <div id="main" role="main" class="container">
+        {% block "content" %}{% endblock %}
+      </div>
+      <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>
+          &copy; {% now "Y" %} | {% trans "Todos los derechos reservados" %} | {{ SITE_NAME }}
+        </p>
+      </div>
+      </footer>
+      <!-- ============================================= -->
+    </div> <!--! end of #container -->
+
+    {% addtoblock "jquery" %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+    {% endaddtoblock %}
+    {% addtoblock "js" %}
+
+    <!-- scripts concatenated and minified via ant build script-->
+    <script src="{{ STATIC_URL }}js/plugins.js"></script>
+    <script src="{{ STATIC_URL }}js/script.js"></script>
+    <!-- end scripts-->
+
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    {% endaddtoblock %}
+    {% render_block "jquery" %}
+    {% render_block "js" %}
+  </body>
+</html>
+{% comment %}-*- htmldjango -*- vim:set ft=htmldjango et sw=2 sts=2:{% endcomment %}
