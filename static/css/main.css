@@ -2,7 +2,7 @@
 -------------------------------------------------- */
 body {
   background-color: #fff;
-  background-image: url("http://127.0.0.1/static/img/metal.jpg");
+  background-image: url("/static/img/metal.jpg");
   position: relative;
 }
 section {
@@ -276,5 +276,5 @@ Caption
 
 .topbar-inner{
   background-color: #BBB;
-  background-image: url("http://127.0.0.1/static/img/menubg.jpg");
+  background-image: url("/static/img/menubg.jpg");
 }
