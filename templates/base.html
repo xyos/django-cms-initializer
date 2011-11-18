@@ -30,7 +30,7 @@
       <div class="topbar">
         <div class="topbar-inner">
           <div class="container">
-            <a class="brand" href="#">{{ SITE_NAME }}</a>
+            <a class="brand" href="/">{{ SITE_NAME }}</a>
             <ul class="nav">
               {% show_menu 0 100 100 100 "menu.html" %}
             </ul>
@@ -46,14 +46,7 @@
       </div>
       <!-- Footer
       ================================================== -->
-      <footer class="footer">
-      <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>
-          &copy; {% now "Y" %} | {% trans "Todos los derechos reservados" %} | {{ SITE_NAME }}
-        </p>
-      </div>
-      </footer>
+      {% include "footer.html" %}
       <!-- ============================================= -->
     </div> <!--! end of #container -->
 
@@ -69,7 +62,7 @@
     <!-- end scripts-->
 
     <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+      var _gaq=[['_setAccount','UA-10345560-1'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
